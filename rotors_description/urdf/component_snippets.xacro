@@ -661,7 +661,7 @@
           <image>
             <format>L8</format>
             <width>640</width>
-            <height>480</height>
+            <height>640</height>
           </image>
           <clip>
             <near>0.01</near>
@@ -722,7 +722,7 @@
       <child link="${namespace}/vi_sensor_link" />
     </joint>
     <!-- Cameras -->
-    <xacro:if value="${enable_cameras}">
+    <xacro:if value="false">
       <!-- Insert stereo pair. -->
       <xacro:vi_sensor_stereo_camera_macro
         namespace="${namespace}" parent_link="${namespace}/vi_sensor_link"
@@ -735,13 +735,13 @@
     <xacro:if value="${enable_depth}">
       <xacro:vi_sensor_depth_macro
         namespace="${namespace}" parent_link="${namespace}/vi_sensor_link"
-        camera_suffix="depth" frame_rate="30.0" max_range="10.0">
+        camera_suffix="depth" frame_rate="10.0" max_range="10.0">
         <origin xyz="0.015 0.055 0.0065" rpy="0 0 0" />
       </xacro:vi_sensor_depth_macro>
     </xacro:if>
 
     <!-- Groundtruth -->
-    <xacro:if value="${enable_ground_truth}">
+    <xacro:if value="false">
       <!-- Odometry Sensor -->
       <xacro:odometry_plugin_macro
         namespace="${namespace}/ground_truth"
@@ -775,7 +775,7 @@
     </xacro:if>
 
     <!-- ADIS16448 IMU. -->
-    <xacro:imu_plugin_macro
+    <!-- <xacro:imu_plugin_macro
       namespace="${namespace}"
       imu_suffix=""
       parent_link="${namespace}/vi_sensor_link"
@@ -791,7 +791,7 @@
       accelerometer_turn_on_bias_sigma="0.1960">
       <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
       <origin xyz="0.015 0 0.0113" rpy="0 0 0" />
-    </xacro:imu_plugin_macro>
+    </xacro:imu_plugin_macro> -->
   </xacro:macro>
 
   <xacro:macro name="ground_truth_imu_and_odometry" params="namespace parent_link">
