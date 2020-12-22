@@ -6,4 +6,5 @@
 *~
 */models/iris/*.sdf
 *.user
+.vscode
 
