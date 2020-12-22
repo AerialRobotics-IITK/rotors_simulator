@@ -26,6 +26,8 @@
 
 #include "ConnectGazeboToRosTopic.pb.h"
 
+using namespace std::complex_literals;
+
 namespace gazebo {
 
 GazeboWindBetaPlugin::~GazeboWindBetaPlugin() {
